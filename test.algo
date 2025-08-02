@@ -1,0 +1,28 @@
+phrase = input("Entrez une phrase terminée par un point : ")
+
+longueur = 0
+nb_mots = 0
+nb_voyelles = 0
+voyelles = "aeiouyAEIOUY"
+
+# Vérifier si la phrase se termine par un point
+if not phrase.endswith('.'):
+    print("Erreur : la phrase doit se terminer par un point.")
+else:
+    for i, caractere in enumerate(phrase):
+        if caractere == '.':
+            break  # On arrête dès qu'on atteint le point final
+
+        longueur += 1
+
+        if caractere in voyelles:
+            nb_voyelles += 1
+
+        # Compter un mot si c'est le premier caractère
+        # ou si le caractère précédent est un espace
+        if (i == 0 and caractere != ' ') or (i > 0 and phrase[i-1] == ' ' and caractere != ' '):
+            nb_mots += 1
+
+    print("Longueur de la phrase :", longueur)
+    print("Nombre de mots :", nb_mots)
+    print("Nombre de voyelles :", nb_voyelles)
